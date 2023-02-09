@@ -89,7 +89,7 @@ class AVLTree {
 
 
   
-  //Roration worker functions to be used in the balance controller
+  //Rotation worker functions to be used in the balance controller
   item* rotateright(item* p) {
     item* q = p->left;
     p->left = q->right;
