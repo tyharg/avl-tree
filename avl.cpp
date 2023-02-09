@@ -131,26 +131,26 @@ class AVLTree {
     
     if(balance_factor(t) > 1){
       if(balance_factor(t->right) < 0){
-	cout << "imbalance at: " << t->id << " rotating rightleft" << endl;
-	t->right = rotateright(t->right);	
+        cout << "imbalance at: " << t->id << " rotating rightleft" << endl;
+        t->right = rotateright(t->right);	
       }
       else{
-	cout << "imbalance at: " << t->id <<" rotating left" << endl;
+        cout << "imbalance at: " << t->id <<" rotating left" << endl;
       }
       return rotateleft(t);
     }
-    
-    if(balance_factor(t) < -1 ) {
-      if(balance_factor(t->left) > 0  ){
-	cout << "imbalance at: " << t->id << " rotating rightleft" << endl;
-	t->left = rotateleft(t->left);
+      
+      if(balance_factor(t) < -1 ) {
+        if(balance_factor(t->left) > 0  ){
+          cout << "imbalance at: " << t->id << " rotating rightleft" << endl;
+          t->left = rotateleft(t->left);
+        }
+        else{
+          cout << "imbalance at: " << t->id <<" rotating right" << endl;
+        }
+        return rotateright(t);
       }
-      else{
-	cout << "imbalance at: " << t->id <<" rotating right" << endl;
-      }
-      return rotateright(t);
-    }
-    return t;
+      return t;
   }
   ///////////////////////////////////////////////////////////////////////////
 
@@ -164,14 +164,12 @@ class AVLTree {
   //     It visits each node at most one time
   //          Time complexity: O(n)
   bool verify(item* t){
-    if(t == NULL)
-      return 1; 
+    if(t == NULL) return 1; 
 
     int hl = height(t->left);
     int hr = height(t->right);
  
-    if(abs(hl - hr) <= 1   &&  verify(t->left)   &&  verify(t->right))
-      return 1;
+    if(abs(hl - hr) <= 1   &&  verify(t->left)   &&  verify(t->right)) return 1;
  
     return 0;
   }
@@ -201,9 +199,9 @@ class AVLTree {
 
 
 
-  
-//Public accessor methods for AVL tree.
-public:
+    
+  //Public accessor methods for AVL tree.
+  public:
 
   ~AVLTree() {
     root = NULL;
@@ -230,7 +228,7 @@ public:
   }
 
 };
-////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
 
 
 
