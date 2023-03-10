@@ -142,7 +142,7 @@ class AVLTree {
       
       if(balance_factor(t) < -1 ) {
         if(balance_factor(t->left) > 0  ){
-          cout << "imbalance at: " << t->id << " rotating rightleft" << endl;
+          cout << "imbalance at: " << t->id << " rotating leftright" << endl;
           t->left = rotateleft(t->left);
         }
         else{
